@@ -116,7 +116,7 @@ compilers.generic_compiler = (extension, helper) -> (compileStep) ->
         """
       compiler_configuration.templates_registered_for.push helpers.getCompileStepArchAndPackage(compileStep)
 
-  output_path = compileStep.rootOutputPath + compileStep.inputPath.replace new RegExp("`#{extension}'$"), "js"
+  output_path = compileStep.inputPath.replace new RegExp("#{extension}$"), "js"
   compileStep.addJavaScript
     path: output_path,
     sourcePath: input_path,
